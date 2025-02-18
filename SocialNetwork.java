@@ -1,4 +1,5 @@
-import java.util.*;
+
+
 
 public class SocialNetwork {
 
@@ -6,16 +7,16 @@ public class SocialNetwork {
         String network = "";
 
         // Starting network
-        System.out.println(network);
+        System.out.println(network); // Print the current state of the network
 
         // Add users
-        network = addUser(network, "swofferh", "achen47-hibbahk");
-        network = addUser(network, "achen47", "swofferh");
-        network = addUser(network, "hibbahk", "swofferh");
+        network = addUser(network, "swofferh", "achen47-hibbahk"); // Add user swofferh with friends achen47 and hibbahk
+        network = addUser(network, "achen47", "swofferh"); // Add user achen47 with friend swofferh
+        network = addUser(network, "hibbahk", "swofferh"); // Add user hibbahk with friend swofferh
 
         // Print network and size
         System.out.println(network);
-        System.out.println(networkSize(network));
+        System.out.println(networkSize(network)); // Print the size of the network
 
         // Remove user
         network = removeUser(network, "achen47");
@@ -23,15 +24,15 @@ public class SocialNetwork {
         System.out.println(networkSize(network));
 
         // Add more users
-        network = addUser(network, "juliak24", "hibbahk");
+        network = addUser(network, "juliak24", "hibbahk"); // Add user juliak24 with friend hibbahk
         System.out.println(network);
         System.out.println(networkSize(network));
 
-        network = addUser(network, "meravf", "swofferh-juliak24");
+        network = addUser(network, "meravf", "swofferh-juliak24"); // Add user meravf with friends swofferh and juliak24
         System.out.println(network);
         System.out.println(networkSize(network));
 
-        network = addUser(network, "mxw", "");
+        network = addUser(network, "mxw", ""); // Add user mxw with no friends
         System.out.println(network);
         System.out.println(networkSize(network));
 
@@ -40,7 +41,11 @@ public class SocialNetwork {
     }
 
     public static String addUser(String network, String user, String friends) {
-        return network + user + ":" + friends + ",";
+        if (!friends.isEmpty()) {
+            return network + user + ":" + friends + ",";
+        } else {
+            return network + user + ":,";
+        }
     }
 
     public static int networkSize(String network) {
