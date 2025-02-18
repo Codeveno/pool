@@ -1,5 +1,6 @@
 import java.util.*;
 
+@SuppressWarnings("unused")
 public class SocialNetwork {
 
     public static void main(String[] args) {
